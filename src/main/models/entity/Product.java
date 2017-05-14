@@ -9,37 +9,35 @@ import javax.persistence.*;
 @Table(name="Products")
 public class Product {
     @Id
-    @Column(name = "id", columnDefinition = "serial")
-    @GeneratedValue
-    private Integer idProduct;
-    @Column(name = "name")
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
+    private Integer iduser;
     private String name;
-    @Column(name = "description")
     private String description;
-    @Column(name = "user_id")
-    private int user_id;
 
-    public Product(Integer idProduct, String name, String description, int user_id) {
-        this.idProduct = idProduct;
+    public Product() {
+    }
+
+    public Product(String name, String description) {
         this.name = name;
         this.description = description;
-        this.user_id = user_id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getIdProduct() {
-        return idProduct;
+    public Integer getIduser() {
+        return iduser;
     }
 
-    public void setIdProduct(Integer idProduct) {
-        this.idProduct = idProduct;
+    public void setIduser(Integer iduser) {
+        this.iduser = iduser;
     }
 
     public String getName() {

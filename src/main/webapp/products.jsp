@@ -67,15 +67,15 @@
                     </tr>
                     <c:forEach items="${requestScope.productList}" var="product">
                         <tr>
-                            <td id="productNameList${product.idProduct}"><c:out value="${product.name}"></c:out></td>
-                            <td id="productDescList${product.idProduct}"><c:out value="${product.description}"></c:out></td>
-                            <td><a href="javascript://" onclick="activateEditForm(${product.idProduct}); return false;">edit</a></td>
+                            <td id="productNameList${product.id}"><c:out value="${product.name}"></c:out></td>
+                            <td id="productDescList${product.id}"><c:out value="${product.description}"></c:out></td>
+                            <td><a href="javascript://" onclick="activateEditForm(${product.id}); return false;">edit</a></td>
                             <td>
-                                <form method="POST" name="delete" id="deleteFormId_${product.idProduct}">
+                                <form method="POST" name="delete" id="deleteFormId_${product.id}">
                                     <input type="hidden" value="delete" name="action"/>
-                                    <input type="hidden" value="${product.idProduct}" name="id"/>
+                                    <input type="hidden" value="${product.id}" name="id"/>
                                 </form>
-                                <a href="javascript://" onClick="document.getElementById('deleteFormId_${product.idProduct}').submit(); return false;">
+                                <a href="javascript://" onClick="document.getElementById('deleteFormId_${product.id}').submit(); return false;">
                                     delete
                                 </a>
                             </td>

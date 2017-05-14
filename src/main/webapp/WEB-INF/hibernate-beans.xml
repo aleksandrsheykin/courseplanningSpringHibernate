@@ -13,22 +13,6 @@
         <property name="password" value="1234" />
     </bean>
 
-    <!-- Hibernate 3 XML SessionFactory Bean definition-->
-    <!-- 	<bean id="hibernate3SessionFactory"
-            class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-            <property name="dataSource" ref="dataSource" />
-            <property name="mappingResources">
-                <list>
-                    <value>person.hbm.xml</value>
-                </list>
-            </property>
-            <property name="hibernateProperties">
-                <value>
-                    hibernate.diaslect=org.hibernate.dialect.MySQLDialect
-                </value>
-            </property>
-        </bean> -->
-
     <!-- Hibernate 3 Annotation SessionFactory Bean definition-->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
@@ -36,6 +20,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>main.models.entity.User</value>
+                <value>main.models.entity.Product</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -48,6 +33,9 @@
     </bean>
 
     <bean id="userDao" class="main.models.dao.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="productDao" class="main.models.dao.ProductDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 </beans>
