@@ -22,6 +22,7 @@ public class Product {
     public Product(String name, String description) {
         this.name = name;
         this.description = description;
+        this.iduser = 1;
     }
 
     public Integer getId() {

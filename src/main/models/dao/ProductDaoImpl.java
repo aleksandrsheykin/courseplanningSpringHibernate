@@ -5,6 +5,7 @@ import main.models.connection.DBConnection;
 import main.models.entity.Product;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -51,4 +52,22 @@ public class ProductDaoImpl implements ProductDao {
         session.close();
     }
 
+    @Override
+    public void delete(Integer id) {
+        Session session = this.sessionFactory.openSession();
+        Query query = session.createQuery("DELETE FROM main.models.entity.Product WHERE id = :id");
+        query.setParameter("id", id);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void edit(Integer id, String name, String desc) {
+        Session session = this.sessionFactory.openSession();
+        String hql = "UPDATE main.models.entity.Product set name=:name, description=:desc WHERE id = :id";
+        Query query = session.createQuery(hql);
+        query.setParameter("name", name);
+        query.setParameter("desc", desc);
+        query.setParameter("id", id);
+        query.executeUpdate();
+    }
 }

@@ -35,7 +35,6 @@ public class ProductController {
     public ModelAndView showProductPage(Model model) throws SQLException {
         ModelAndView mav = new ModelAndView();
         List<Product> productList = productService.getAllProducts();
-        logger.debug("PPPPPCOUNT="+productList.size());
         model.addAttribute("productList", productList);
         mav.setViewName("products");
         return mav;
@@ -52,8 +51,9 @@ public class ProductController {
         if (action.equals("add")) {
             productService.addProduct(name, desc);
         } else if (action.equals("edit")) {
-            //productService.editProduct(id, name, desc);
+            productService.edit(id, name, desc);
         } else if (action.equals("delete")) {
+            productService.delete(id);
             /*if (productService.getDelResolution(id)) {
                 productService.deleteProduct(id);
             } else {

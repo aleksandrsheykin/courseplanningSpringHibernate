@@ -12,4 +12,6 @@ public interface ProductDao {
 
     List<Product> getAll();
     void insert(Product product);
+    void delete(Integer id);
+    void edit(Integer id, String name, String desc);
 }

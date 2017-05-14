@@ -80,7 +80,7 @@
                             <td id="planListQuantity${plan.id_plan}"><c:out value="${plan.quantity}"></c:out></td>
                             <td id="planListCost${plan.id_plan}"><c:out value="${plan.cost}"></c:out></td>
                             <td>
-                                <a href="javascript://" onclick="activateEditForm(${plan.id_plan}, ${plan.product.idProduct}); return false;">edit</a>
+                                <a href="javascript://" onclick="activateEditForm(${plan.id_plan}, ${plan.product.id}); return false;">edit</a>
                             </td>
                             <td>
                                 <form method="POST" name="delete" action="maindel" id="deleteFormId_${plan.id_plan}">
@@ -109,7 +109,7 @@
                             <div class="form-group">
                                 <select id="tokens" class="selectpicker" data-live-search="true" name="idProduct">
                                     <c:forEach items="${requestScope.productList}" var="product">
-                                        <option data-tokens="first" value="${product.idProduct}" ><c:out value="${product.name}"></c:out></option>
+                                        <option data-tokens="first" value="${product.id}" ><c:out value="${product.name}"></c:out></option>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -138,7 +138,7 @@
                             <div class="form-group">
                                 <select class="selectpicker" data-live-search="true" name="idProduct" id="editIdProduct">
                                     <c:forEach items="${requestScope.productList}" var="product">
-                                        <option data-tokens="first" value="${product.idProduct}" ><c:out value="${product.name}"></c:out></option>
+                                        <option data-tokens="first" value="${product.id}" ><c:out value="${product.name}"></c:out></option>
                                     </c:forEach>
                                 </select>
                             </div>

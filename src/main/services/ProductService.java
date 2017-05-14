@@ -11,5 +11,7 @@ import java.util.List;
 public interface ProductService {
 
     List<Product> getAllProducts();
-    boolean addProduct(String name, String desc);
+    void addProduct(String name, String desc);
+    void delete(Integer id);
+    void edit(Integer id, String name, String desc);
 }

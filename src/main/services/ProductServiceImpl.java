@@ -32,10 +32,18 @@ public class ProductServiceImpl implements ProductService {
         return productDao.getAll();
     }
 
-    public boolean addProduct(String name, String desc) {
+    public void addProduct(String name, String desc) {
         product = new Product(name, desc);
         productDao.insert(product);
-        return true;
     }
 
+    @Override
+    public void delete(Integer id) {
+        productDao.delete(id);
+    }
+
+    @Override
+    public void edit(Integer id, String name, String desc) {
+        productDao.edit(id, name, desc);
+    }
 }
