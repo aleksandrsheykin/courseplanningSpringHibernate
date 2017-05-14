@@ -40,6 +40,7 @@ public class AdminPanelController {
     public ModelAndView showAdminPage() {
         ModelAndView mav = new ModelAndView();
 
+/*
         for (int replays = 1; replays<= Options.REPLACE_COUNT; replays++)
             try {
                 mav.addObject("userList", userService.getAllUsers());
@@ -53,6 +54,7 @@ public class AdminPanelController {
                     return mav;
                 }
             }
+*/
 
         mav.setViewName("adminPanel");
         return mav;

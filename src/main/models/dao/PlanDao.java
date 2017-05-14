@@ -19,4 +19,5 @@ public interface PlanDao {
     public boolean insert(Plan plan);
     void insert(Date date, Integer idProduct, Integer quantity, Integer cost) throws SQLException;
     void updatePlan(Integer idPlan, Date date, Integer idProduct, Integer quantity, Integer cost) throws SQLException;
+    void save();
 }

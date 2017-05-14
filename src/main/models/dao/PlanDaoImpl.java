@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import main.models.connection.DBConnection;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -18,6 +19,12 @@ import org.springframework.stereotype.Repository;
 public class PlanDaoImpl implements PlanDao {
 
     private static Logger logger = Logger.getLogger(PlanDaoImpl.class);
+
+    private SessionFactory sessionFactory;
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public boolean delete(Integer id) throws SQLException {
         Connection connection = null;
@@ -204,6 +211,11 @@ public class PlanDaoImpl implements PlanDao {
             logger.warn("SQLException in Plan.updatePlan()");
             throw e;
         }
+    }
+
+    @Override
+    public void save() {
+
     }
 }
 

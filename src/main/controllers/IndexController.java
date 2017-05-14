@@ -1,7 +1,9 @@
 package main.controllers;
 
-import main.models.pojo.User;
+import main.models.dao.UserDao;
+import main.models.entity.User;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,12 @@ import java.io.IOException;
 @Controller
 public class IndexController {
     private static Logger logger = Logger.getLogger(IndexController.class);
+    private UserDao userDao;
+
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String showIndexPage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -28,6 +36,7 @@ public class IndexController {
         if (user != null) {
             resp.sendRedirect(req.getContextPath() + "/main");
         }
+
         return "login";
     }
 

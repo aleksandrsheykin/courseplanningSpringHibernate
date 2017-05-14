@@ -32,7 +32,7 @@ public class DBConnection {
         }
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost/shopping_planning", "postgres", "1234");
+                    "jdbc:postgresql://localhost/shopping_planning_hibernate", "postgres", "1234");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class DBConnection {
 
     private static void initPool() {
         PoolProperties p = new PoolProperties();
-        p.setUrl("jdbc:postgresql://localhost/shopping_planning");
+        p.setUrl("jdbc:postgresql://localhost/shopping_planning_hibernate");
         p.setDriverClassName("org.postgresql.Driver");
         p.setUsername("postgres");
         p.setPassword("1234");

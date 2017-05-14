@@ -1,6 +1,7 @@
 package main.controllers;
 
-import main.models.pojo.User;
+import main.exceptions.UserException;
+import main.models.entity.User;
 import main.services.UserService;
 import main.services.UserServiceImpl;
 import main.utils.ErrorManager;
@@ -70,8 +71,8 @@ public class RegistrationController {
                     mav.addObject("user", newUser);
                     mav.setViewName("redirect:main");
                 }
-            } catch (SQLException e) {
-                logger.error("SQLException in RegistrationController.registration()");
+            } catch (UserException e) {
+                logger.error(e.getMessage());
                 if (replays == Options.REPLACE_COUNT) {
                     error.setMsg("Oh sorry! Registration error, try again later");
                     mav.addObject("error", error);
@@ -80,6 +81,7 @@ public class RegistrationController {
             }
             break;
         }
+
         return mav;
     }
 
