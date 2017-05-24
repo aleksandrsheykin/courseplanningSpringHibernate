@@ -1,9 +1,7 @@
 package main.services;
 
 import main.models.dao.PlanDao;
-import main.models.dao.PlanDaoImpl;
-import main.models.dao.UserDaoImpl;
-import main.models.pojo.Plan;
+import main.models.entity.Plan;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +34,8 @@ public class PlanServiceImpl implements PlanService {
 
     public boolean deletePlanById(Integer id) throws SQLException {
         try {
-            return planDao.delete(id);
+            planDao.delete(id);
+            return true;
         } catch (SQLException e) {
             logger.warn("SQLException in PlanServiceImpl");
             throw e;

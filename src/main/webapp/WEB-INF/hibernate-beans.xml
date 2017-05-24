@@ -38,4 +38,7 @@
     <bean id="productDao" class="main.models.dao.ProductDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+    <bean id="planDao" class="main.models.dao.PlanDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 </beans>

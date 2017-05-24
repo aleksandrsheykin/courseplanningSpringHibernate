@@ -1,6 +1,6 @@
 package main.services;
 
-import main.models.pojo.Plan;
+import main.models.entity.Plan;
 
 import java.sql.Date;
 import java.sql.SQLException;
